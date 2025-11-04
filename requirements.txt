@@ -1,0 +1,9 @@
+streamlit
+groq
+gTTS
+audio-recorder-streamlit
+streamlit-lottie
+python-dotenv
+requests
+qrcode
+pillow

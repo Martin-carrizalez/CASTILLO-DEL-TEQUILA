@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Trabajo - Asistente Virtual El Castillo de Tequila</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .logo {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 5px solid #f76c5e;
+            padding-left: 15px;
+        }
+
+        .section h3 {
+            color: #2a5298;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #1e3c72;
+            margin: 0 0 10px 0;
+            font-size: 1.3em;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin-top: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #2a5298;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -47px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #f76c5e;
+            border: 3px solid white;
+        }
+
+        .timeline-item h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .highlight-box h3 {
+            color: white;
+            margin: 0 0 15px 0;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .highlight-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #4ade80;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .ia-applications {
+            background: #fff9f0;
+            border: 3px solid #ffb84d;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .ia-applications h3 {
+            color: #d97706;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ia-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            border-left: 5px solid #ffb84d;
+        }
+
+        .ia-item strong {
+            color: #d97706;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .feature-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        .deliverables {
+            background: #e0f2fe;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .deliverables h3 {
+            color: #0369a1;
+        }
+
+        .deliverable-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .deliverable-item h4 {
+            color: #0369a1;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: #1e3c72;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🏰</div>
+            <h1>Plan de Trabajo</h1>
+            <h2>Asistente Virtual Inteligente</h2>
+            <p>El Castillo de Tequila - Innovación en Hospitalidad Digital</p>
+        </div>
+
+        <div class="content">
+            <!-- VISIÓN DEL PRODUCTO FINAL -->
+            <section class="section">
+                <h2>🎯 Visión del Producto Final</h2>
+                <p style="font-size: 1.1em; line-height: 1.8; margin-bottom: 30px;">
+                    Un <strong>asistente virtual inteligente</strong> que acompaña a los visitantes durante todo su recorrido 
+                    por El Castillo de Tequila, proporcionando información personalizada, respondiendo preguntas en tiempo real 
+                    y creando una experiencia inmersiva que fusiona tradición y tecnología.
+                </p>
+
+                <div class="highlight-box">
+                    <h3>💡 Características Principales del Producto</h3>
+                    <ul>
+                        <li>Interacción conversacional natural por voz y texto</li>
+                        <li>Avatares virtuales con personalidades temáticas</li>
+                        <li>Adaptación contextual según el área del tour</li>
+                        <li>Recolección inteligente de datos de visitantes</li>
+                        <li>Experiencia personalizada basada en preferencias</li>
+                        <li>Continuidad post-visita para fidelización</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- APLICACIONES DE IA -->
+            <section class="section">
+                <div class="ia-applications">
+                    <h3>🤖 ¿Dónde se Aplica la Inteligencia Artificial?</h3>
+                    <p style="margin-bottom: 20px;">
+                        La IA es el corazón del sistema, potenciando cada interacción del visitante:
+                    </p>
+
+                    <div class="ia-item">
+                        <strong>1. Procesamiento de Lenguaje Natural (NLP)</strong>
+                        <p>
+                            Comprende preguntas de los visitantes en lenguaje cotidiano y genera respuestas 
+                            contextuales sobre historia del tequila, proceso de producción, recomendaciones de 
+                            productos y cultura agavera. El sistema interpreta intenciones más allá de palabras clave.
+                        </p>
+                    </div>
+
+                    <div class="ia-item">
+                        <strong>2. Reconocimiento y Síntesis de Voz</strong>
+                        <p>
+                            Transcribe automáticamente las preguntas habladas de los visitantes y convierte las 
+                            respuestas en audio natural con voces personalizadas para cada avatar. Soporta múltiples 
+                            idiomas y acentos.
+                        </p>
+                    </div>
+
+                    <div class="ia-item">
+                        <strong>3. Personalización Adaptativa</strong>
+                        <p>
+                            Analiza el perfil del visitante (edad, origen, preferencias) y el contexto de la 
+                            conversación para adaptar el tono, profundidad y tipo de información compartida. 
+                            Cada experiencia es única.
+                        </p>
+                    </div>
+
+                    <div class="ia-item">
+                        <strong>4. Memoria Conversacional</strong>
+                        <p>
+                            Recuerda interacciones previas dentro del mismo tour para dar continuidad a la 
+                            conversación ("Como mencionaste antes que prefieres el reposado..."). Evita 
+                            repeticiones y crea una experiencia fluida.
+                        </p>
+                    </div>
+
+                    <div class="ia-item">
+                        <strong>5. Análisis de Datos y Perfilamiento</strong>
+                        <p>
+                            Identifica patrones en las preferencias de los visitantes, preguntas frecuentes y 
+                            comportamientos para generar insights de negocio. Segmenta audiencias automáticamente 
+                            para campañas de marketing posteriores.
+                        </p>
+                    </div>
+
+                    <div class="ia-item">
+                        <strong>6. Generación de Contenido Visual (Futuro)</strong>
+                        <p>
+                            Capacidad de crear etiquetas de tequila personalizadas, certificados de visita con diseños 
+                            únicos y contenido visual para redes sociales generado por IA según el estilo del visitante.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PUNTOS DE IMPLEMENTACIÓN -->
+            <section class="section">
+                <h2>📍 Puntos de Implementación en el Tour</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">🏪</div>
+                        <h3>Tienda (Entrada)</h3>
+                        <p>
+                            El asistente da la bienvenida, recopila información básica del visitante y 
+                            prepara la experiencia personalizada. Introduce las marcas y genera expectativa.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🎨</div>
+                        <h3>Murales y Arte</h3>
+                        <p>
+                            Narra leyendas y significado cultural de los murales. Responde preguntas sobre 
+                            historia prehispánica del agave y tradiciones de Jalisco.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🍾</div>
+                        <h3>Área de Envasado</h3>
+                        <p>
+                            Explica el proceso de embotellado y presenta las cuatro marcas del Castillo. 
+                            Identifica preferencias del visitante para recomendaciones personalizadas.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">⚗️</div>
+                        <h3>Fábrica La Partideña</h3>
+                        <p>
+                            Detalla el proceso de transformación del agave en tequila. Responde preguntas 
+                            técnicas sobre destilación, fermentación y maduración.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🌉</div>
+                        <h3>Puentes de Cristal</h3>
+                        <p>
+                            Oportunidad fotográfica interactiva. El asistente sugiere ángulos, genera 
+                            contenido para redes sociales y captura momentos memorables.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🍽️</div>
+                        <h3>La Antigua Taberna</h3>
+                        <p>
+                            Recomendaciones personalizadas de productos, maridajes y experiencias. 
+                            Recopila datos de contacto para seguimiento post-visita.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BENEFICIOS -->
+            <section class="section">
+                <h2>✨ Beneficios para El Castillo de Tequila</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="feature-icon">🎯</div>
+                        <div>
+                            <strong>Diferenciación Competitiva</strong>
+                            <p>Primera casa tequilera con asistente IA conversacional inmersivo</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">📊</div>
+                        <div>
+                            <strong>Datos Accionables</strong>
+                            <p>Base de datos de visitantes con preferencias y comportamientos</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">💰</div>
+                        <div>
+                            <strong>Incremento en Ventas</strong>
+                            <p>Recomendaciones personalizadas aumentan conversión en tienda</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🔄</div>
+                        <div>
+                            <strong>Fidelización</strong>
+                            <p>Comunicación post-visita con invitaciones a eventos y promociones</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">🌍</div>
+                        <div>
+                            <strong>Alcance Global</strong>
+                            <p>Soporte multiidioma para visitantes internacionales</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-item">
+                        <div class="feature-icon">⚡</div>
+                        <div>
+                            <strong>Escalabilidad</strong>
+                            <p>Atiende múltiples visitantes simultáneamente sin límites</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CRONOGRAMA -->
+            <section class="section">
+                <h2>📅 Cronograma de Desarrollo</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Semana 1: Investigación y Prototipado</h4>
+                        <p>
+                            • Análisis de requisitos específicos del Castillo<br>
+                            • Desarrollo de prototipos de interacción voz-texto<br>
+                            • Definición de personalidades de avatares<br>
+                            • Pruebas de tecnologías conversacionales
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Semana 2: Desarrollo del Sistema Base</h4>
+                        <p>
+                            • Implementación de motor conversacional<br>
+                            • Integración de reconocimiento y síntesis de voz<br>
+                            • Creación de base de conocimiento sobre El Castillo<br>
+                            • Desarrollo de sistema de personalización
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Semana 3: Integración de Avatares y Contexto</h4>
+                        <p>
+                            • Implementación de avatares virtuales animados<br>
+                            • Sistema de navegación por áreas (QR codes)<br>
+                            • Módulo de recolección de datos de visitantes<br>
+                            • Panel de administración para análisis
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4>Semana 4: Pruebas, Refinamiento y Presentación</h4>
+                        <p>
+                            • Pruebas de usuario con casos reales<br>
+                            • Optimización de respuestas y flujos<br>
+                            • Documentación técnica y de usuario<br>
+                            • Preparación de demo y presentación final
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ENTREGABLES -->
+            <section class="section">
+                <div class="deliverables">
+                    <h3>📦 Entregables del Proyecto</h3>
+                    
+                    <div class="deliverable-item">
+                        <h4>1. Sistema Funcional Completo</h4>
+                        <p>
+                            Plataforma web responsive con asistente IA conversacional operativo, 
+                            incluyendo reconocimiento de voz, síntesis de audio y avatares interactivos.
+                        </p>
+                    </div>
+
+                    <div class="deliverable-item">
+                        <h4>2. Mapa de Experiencia del Visitante</h4>
+                        <p>
+                            Documentación visual del journey del usuario, puntos de interacción con IA 
+                            en cada área del tour y flujos de conversación por escenario.
+                        </p>
+                    </div>
+
+                    <div class="deliverable-item">
+                        <h4>3. Panel de Administración</h4>
+                        <p>
+                            Dashboard para visualización de métricas: perfiles de visitantes, preguntas 
+                            frecuentes, áreas más visitadas, tasas de conversión y análisis de sentimiento.
+                        </p>
+                    </div>
+
+                    <div class="deliverable-item">
+                        <h4>4. Sistema de QR Codes</h4>
+                        <p>
+                            Códigos QR personalizados para cada área del tour que activan el contexto 
+                            correcto del asistente y registran la ubicación del visitante.
+                        </p>
+                    </div>
+
+                    <div class="deliverable-item">
+                        <h4>5. Documentación de Implementación</h4>
+                        <p>
+                            Guías de instalación, configuración y mantenimiento del sistema. 
+                            Manual de uso para personal del Castillo.
+                        </p>
+                    </div>
+
+                    <div class="deliverable-item">
+                        <h4>6. Presentación Ejecutiva</h4>
+                        <p>
+                            Demo en vivo del sistema, video explicativo, análisis de ROI proyectado 
+                            y plan de escalamiento futuro.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- MÉTRICAS DE ÉXITO -->
+            <section class="section">
+                <h2>🎯 Métricas de Éxito</h2>
+                <div class="grid">
+                    <div class="card">
+                        <div class="card-icon">👥</div>
+                        <h3>Adopción</h3>
+                        <p>% de visitantes que interactúan con el asistente durante el tour</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">💬</div>
+                        <h3>Engagement</h3>
+                        <p>Número promedio de interacciones por visitante y duración de conversaciones</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">😊</div>
+                        <h3>Satisfacción</h3>
+                        <p>NPS (Net Promoter Score) comparado con experiencia tradicional</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">📧</div>
+                        <h3>Captura de Datos</h3>
+                        <p>Porcentaje de visitantes que comparten información de contacto</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🛒</div>
+                        <h3>Conversión</h3>
+                        <p>Incremento en ventas de productos en tienda post-interacción</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">🔁</div>
+                        <h3>Retención</h3>
+                        <p>Tasa de respuesta a comunicaciones post-visita y re-visitas</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VISIÓN FUTURA -->
+            <section class="section">
+                <h2>🚀 Visión a Futuro</h2>
+                <div class="highlight-box">
+                    <h3>Posibles Expansiones del Sistema</h3>
+                    <ul>
+                        <li>Realidad aumentada para visualizar proceso del tequila en 3D</li>
+                        <li>Integración con redes sociales para contenido viral automático</li>
+                        <li>Sistema de gamificación con recompensas por interacción</li>
+                        <li>Marketplace virtual para compras durante y después del tour</li>
+                        <li>Chatbot 24/7 para consultas pre y post visita</li>
+                        <li>Análisis predictivo de tendencias de visitantes</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <div class="footer">
+            <h3>🏰 El Castillo de Tequila</h3>
+            <p style="margin-top: 10px;">Innovación en Hospitalidad Digital</p>
+            <p style="margin-top: 15px; opacity: 0.8;">
+                Este proyecto representa la convergencia entre tradición tequilera e inteligencia artificial,
+                posicionando al Castillo como pionero en experiencias turísticas del futuro.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
